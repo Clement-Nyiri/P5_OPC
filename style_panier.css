@@ -1,0 +1,149 @@
+@font-face {
+    font-family: Lato;
+    src: url(fonts/Lato-Regular.ttf);
+    font-weight: normal;
+}
+
+#bloc_page{
+    font-family: Lato;
+    width: 100%;
+    margin-left: -8px;
+    background-color: #d2d2d260;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: sticky;
+    border: 1px white solid;
+    background-color: #131234;
+    margin-top: -10px;
+}
+
+#logo{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo img{
+    height: 70px;
+    width: 200px;
+}
+
+#search_bar{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#bouton_recherche{
+    width: 5%;
+    height: 40px;
+    border-radius:0 5px 5px 0;
+    font-size: 1em;
+    color: black;
+    margin-left: -3px;
+    margin-top: 0.5px;
+    border: 0.15px #F2F2F2 solid;
+    background-color: rgba(255, 255, 255, 0.541);
+}
+
+#site_search{
+    width: 60%;
+    height: 40px;
+    border-radius:5px 0 0 5px;
+    border: 0.15px #F2F2F2 solid;
+    font-size: 1.1em;
+}
+
+#panier{
+    width: 60%;
+    border: 2px solid rgba(20, 124, 221, 0.712);
+    margin-top: 8%;
+    margin-left: 3%;
+    padding: 2%; 
+    float: left;
+}
+
+.supprimer{
+    height: 30px;
+    width: 12ch;
+    margin-top: 7px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #ff2b2b;
+    font-weight: bold;
+}
+
+#panier p{
+    margin-right: 10px;
+}
+
+#panier h4{
+    text-align: right;
+}
+
+#panier article{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 40%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#panier img{
+    height: 50px;
+}
+
+#formulaire{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5%;
+    margin-left: 70%;
+    background-color:rgba(173, 173, 173, 0.363);
+    border: 1px solid black;
+    position: sticky;
+}
+
+#formulaire h3{
+    margin-bottom: 10%;
+}
+
+.formulaire_commande{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.formulaire_commande input{
+    font-size: 1em;
+}
+
+label{
+    display: block;
+    float: left;
+    width: 130px;
+    height: 40px;
+}
+
+#commander{
+    height: 3rem;
+    width: 13ch;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
