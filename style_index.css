@@ -1,15 +1,20 @@
 @font-face {
-    font-family: Lato;
-    src: url(fonts/Lato-Regular.ttf);
-    font-weight: normal;
+    font-family : "Lato";
+    src: url('fonts/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Lato-bold";
+    src: url('fonts/Lato-Bold.ttf')
 }
 
 #bloc_page{
-    font-family: Lato;
+    font-family: "Lato";
     display:flex;
     flex-direction: column;
     width: 100%;
     margin-left: -8px;
+    background-color: #eeeeee;
 }
 
 header{
@@ -95,6 +100,11 @@ header{
     border-right: 1px solid black;
     padding-left: 1%;
     padding-top: 5%;
+}
+
+#section_filtres h2{
+    text-decoration: underline;
+    font-family: "Lato-bold";
 }
 
 #filtres article{
