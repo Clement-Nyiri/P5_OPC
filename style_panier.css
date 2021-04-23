@@ -7,8 +7,7 @@
 #bloc_page{
     font-family: Lato;
     width: 100%;
-    margin-left: -8px;
-    background-color: #d2d2d260;
+    
 }
 
 header{
@@ -17,7 +16,7 @@ header{
     width: 100%;
     position: sticky;
     border: 1px white solid;
-    background-color: #131234;
+    background-color: #2b5486;
     margin-top: -10px;
 }
 
@@ -146,4 +145,23 @@ label{
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+footer{
+    background-color: #2b5486;
+    color: white;
+    display:flex;
+    justify-content: space-around;
+}
+
+footer ul{
+    list-style-type: none;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+}
+
+footer li{
+    margin-bottom: 10px;
 }

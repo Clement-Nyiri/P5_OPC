@@ -23,7 +23,7 @@ header{
     width: 100%;
     position: sticky;
     border: 1px white solid;
-    background-color: #131234;
+    background-color: #2b5486;
     margin-top: -10px;
 }
 
@@ -128,7 +128,7 @@ header{
 }
 
 footer{
-    background-color: #131234;
+    background-color: #2b5486;
     color: white;
     display:flex;
     justify-content: space-around;
