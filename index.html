@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/style.css"
+    <link rel="stylesheet" href="css/style_P5.css">
     <!-- FontAwesome Kit-->
     <script src="https://kit.fontawesome.com/2622c81c44.js" crossorigin="anonymous"></script>
 
@@ -15,8 +15,8 @@
 
   <body>
     <div id="bloc_page">
-      <div class="bg-dark position-sticky sticky-top">
-          <header class="container-fluid">
+      <div class=" position-sticky sticky-top">
+          <header class=" bg-warning container-fluid">
               <div class="row">
                     <div class="col-3 mt-1 text-center">
                       <a class="navbar-brand" href="index.html">
@@ -64,14 +64,23 @@
                         </div>
                     </form>
               </div>
-              <div class="col-9 ml-5" id="productList">
+              <div class="col-10" id="productList">
                 <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
                   <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title text-center">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <p class="cart-text">Prix</p>
-                    <a href="#" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
+                    <a href="#" class="btn btn-warning stretched-link mx-auto d-block">Voir l'article</a>
+                  </div>
+                </div>
+                <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
+                  <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to buldozer build on the card title and make up the bulk of the card's content.</p>
+                    <p class="cart-text">Prix</p>
+                    <a href="#" class="btn btn-warning stretched-link mx-auto d-block">Voir l'article</a>
                   </div>
                 </div>
                 <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
@@ -80,7 +89,7 @@
                     <h5 class="card-title text-center">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <p class="cart-text">Prix</p>
-                    <a href="#" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
+                    <a href="#" class="btn btn-warning stretched-link mx-auto d-block">Voir l'article</a>
                   </div>
                 </div>
                 <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
@@ -89,16 +98,7 @@
                     <h5 class="card-title text-center">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <p class="cart-text">Prix</p>
-                    <a href="#" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
-                  </div>
-                </div>
-                <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
-                  <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="cart-text">Prix</p>
-                    <a href="#" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
+                    <a href="#" class="btn btn-warning stretched-link mx-auto d-block">Voir l'article</a>
                   </div>
                 </div>
                 <div class="card mr-5 mt-4 border-secondary shadow" style="width: 20rem;">
@@ -107,13 +107,13 @@
                     <h5 class="card-title text-center">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <p class="cart-text">Prix</p>
-                    <a href="#" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
+                    <a href="#" class="btn btn-warning stretched-link mx-auto d-block">Voir l'article</a>
                   </div>
                 </div>
               </div>
           </div>
       </div>
-      <footer class="container-fluid bg-dark border-top border-white pb-3">
+      <footer class="container-fluid bg-warning pt-3 pb-3">
         <ul class="list-unstyled list-inline text-center mt-4">
           <a href="#"><li class="list-inline-item">Contact</li></a>
           <li class="list-inline-item">&middot;</li>
@@ -132,7 +132,7 @@
             $(document).ready(function(){
             $("#searchInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
-                $("#productList .col-12").filter(function() {
+                $("#productList .col-10").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
