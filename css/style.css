@@ -7835,4 +7835,10 @@ a.text-dark:hover, a.text-dark:focus {
   flex-direction: row;
   flex-wrap: wrap; }
 
+footer {
+  font-size: 1.1em; }
+
+footer a {
+  color: white; }
+
 /*# sourceMappingURL=style.css.map */
