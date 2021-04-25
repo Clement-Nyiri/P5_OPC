@@ -1,67 +1,134 @@
 <!doctype html>
-<html lang=fr>
-<head>
+<html lang="en">
+  <head>
+    <title>Orinoco</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="robots" content="index,follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title> Accueil Orinoco </title>
-    <!-- Insertion FontAwesome-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css"
+    <!-- FontAwesome Kit-->
     <script src="https://kit.fontawesome.com/2622c81c44.js" crossorigin="anonymous"></script>
-    <!-- Fin insertion FontAwesome-->
-    <link rel="stylesheet" type="text/css" href="style_index.css">
-    
-</head>
 
-<body>
+    </head>
+
+  <body>
     <div id="bloc_page">
-        <header>
-            <nav id="logo">
-                <a href="index.html"><img src="images/Reservia@3x.png" alt="logo_ornicoco" /></a>
-            </nav>
-            <nav id="search_bar">
-                <input type="search" id="site_search" aria-label="Rechercher sur le site" placeholder="Rechercher un produit...">
-                <button id="bouton_recherche"><i class="fas fa-search"></i></button>
-            </nav>
-            <nav id="panier">
-                <a href="Panier.html"><i class="fas fa-shopping-basket"></i> Votre panier</a>
-            </nav>
-        </header>
+      <div class="bg-dark position-sticky sticky-top">
+          <header class="container-fluid">
+              <div class="row">
+                    <div class="col-3 mt-1 text-center">
+                      <a class="navbar-brand" href="index.html">
+                          <img src="images/logo.png" width="100" height="50" alt="logo-Orinoco" />
+                      </a>
+                    </div>
+                    <div class="col-6 mt-3">
+                      <input class="form-control" id="searchInput" type="text" placeholder="Search...">
+                    </div> 
+                    <div id="panier" class="col-3 mt-2 text-center">
+                        <a class="nav-link" href="panier.html"><i class="fas fa-shopping-cart"></i>Panier</a>
+                    </div> 
+              </div>
+          </header>
+      </div>
 
-        <section id="section_filtres">
-            <h2>Filtres</h2>
-            <article>
-                <h3>Type de meuble</h3>
-                <div class="filtre"><input type="checkbox" id="table" name="table" aria-label="table"><label for="table">Table</label></div>
-                <div class="filtre"><input type="checkbox" id="chaise" name="chaise" aria-label="chaise"><label for="chaise">Chaise</label></div>
-                <div class="filtre"><input type="checkbox" id="banc" name="banc" aria-label="banc"><label for="banc">Banc</label></div>
-            </article>
-            <article>
-                <h3>Prix</h3>
-                <div class="filtre"><input type="checkbox" id="0-400EUR" name="0-400EUR" aria-label="0-400EUR"><label for="0-400EUR">0-400EUR</label></div>
-                <div class="filtre"><input type="checkbox" id="400-600EUR" name="400-600EUR" aria-label="400-600EUR"><label for="400-600EUR">400-600EUR</label></div>
-                <div class="filtre"><input type="checkbox" id="600-800EUR" name="600-800EUR" aria-label="600-800EUR"><label for="600-800EUR">600-800EUR</label></div>
-                <div class="filtre"><input type="checkbox" id="+800EUR" name="+800EUR" aria-label="+800EUR"><label for="+800EUR">+ de 800EUR</label></div>
-            </article>
-        </section>
-        <section id="produits">
-            <article></article>
-        </section>
-        <footer>
-            <ul>
-                <h3>A propos</h3>
-                <li>Conditions générales de vente</li>
-                <li>Blog</li>
-                <li>Mentions légales</li>
-            </ul>
-            <ul>
-                <h3>Nos réseaux sociaux</h3>
-                <li><i class="fab fa-facebook-square"></i> Facebook</li>
-                <li><i class="fab fa-twitter"></i> Twitter</li>
-                <li><i class="fab fa-instagram"></i> Instagram</li>
-            </ul>
-        </footer>
+      <div class="container-fluid mt-5">
+          <div class="row">
+              <div class="col-2 border-right border-dark shadow-sm">
+                    <form>
+                        <h4>Prix</h4>
+                        <div class="mt-4">
+                            <input type="checkbox" class="mr-2" id="0-200" name="0-200"><label for="0-200">De 0 à 200 EUR</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="mr-2" id="200-500" name="200-500"><label for="200-500">De 200 à 500 EUR</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="mr-2" id="500-800" name="500-800"><label for="500-800">De 500 à 800 EUR</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="mr-2" id="+800" name="+800"><label for="+800">Plus de 800 EUR</label>
+                        </div>
+                    </form>
+                    <form>
+                        <h4 class="mt-5"> Type de meuble</h4>
+                        <div class="mt-4">
+                            <input type="checkbox" class="mr-2" id="table" name="table"><label for="table">Table</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="mr-2" id="chaise" name="chaise"><label for="chaise">Chaise</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="mr-2" id="banc" name="banc"><label for="banc">Banc</label>
+                        </div>
+                    </form>
+              </div>
+              <div class="col-10" id="productList">
+                <div class="card mr-5 mt-3" style="width: 20rem;">
+                  <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="cart-text">Prix</p>
+                    <a href="#" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
+                  </div>
+                </div>
+                <div class="card mr-5 mt-3" style="width: 20rem;">
+                  <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="cart-text">Prix</p>
+                    <a href="#" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
+                  </div>
+                </div>
+                <div class="card mr-5 mt-3" style="width: 20rem;">
+                  <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="cart-text">Prix</p>
+                    <a href="#" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
+                  </div>
+                </div>
+                <div class="card mr-5 mt-3" style="width: 20rem;">
+                  <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="cart-text">Prix</p>
+                    <a href="#" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
+                  </div>
+                </div>
+                <div class="card mr-5 mt-3" style="width: 20rem;">
+                  <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="cart-text">Prix</p>
+                    <a href="#" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+      
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+            $("#searchInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#productList .col-12").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            });
+        </script>
     </div>
 </body>
+</html>
