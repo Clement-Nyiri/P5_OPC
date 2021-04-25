@@ -1,82 +1,117 @@
 <!doctype html>
-<html lang=fr>
-<head>
+<html lang="en">
+  <head>
+    <title>Oronico panier</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="robots" content="index,follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title> Votre panier Orinoco </title>
-    <!-- Insertion FontAwesome-->
-    <script src="https://kit.fontawesome.com/2622c81c44.js" crossorigin="anonymous"></script>
-    <!-- Fin insertion FontAwesome-->
-    <link rel="stylesheet" type="text/css" href="style_panier.css">
-    
-</head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style_P5.css">
+  </head>
+  <body>
+        <div id="bloc_page">
+            <div class="position-sticky sticky-top">
+                <header class=" bg-warning container-fluid">
+                    <div class="row">
+                        <div class="col-3 mt-1">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="images/logo.png" width="100" height="50" alt="logo-Orinoco" />
+                            </a>
+                        </div>
+                        <div class="col-6 mb-3 mt-3">
+                            <div class="col">
+                            <input class="form-control" id="searchInput" type="text" placeholder="Rechercher un produit..">
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>
 
-<body>
-    <div id="bloc_page">
-        <header>
-            <nav id="logo">
-                <a href="index.html"><img src="images/Reservia@3x.png" alt="logo_ornicoco" /></a>
-            </nav>
-            <nav id="search_bar">
-                <input type="search" id="site_search" aria-label="Rechercher sur le site" placeholder="Rechercher un produit...">
-                <button id="bouton_recherche"><i class="fas fa-search"></i></button>
-            </nav>
-        </header>
-        <section id="panier">
-            <h2>Votre panier: X article(s)</h2>
-            <article>
-                <img src="images/Yoshi.jpg" alt="image_article"/> 
-                <p>Nom du produit</p>
-                <p>Description du produit</p>
-                <p>Quantité: 1</p>
-                <button class="supprimer">Supprimer</button>
-                <p>50EUR</p>
-            </article>
-            <h4 id="total">Sous-total: X EUR</h4>
-        </section>
-        <section id="formulaire">
-            <h3>Formulaire de commande</h3>
-            <form methode="post" action="" class="formulaire_commande">
-                <div>
-                    <label for="prenom">Prénom</label>
-                    <input type="text" id="prenom" name="prenom" required>
+            <div class="container-fluid mt-5 mb-4">
+                <h3 class="ml-5">Panier: X articles</h3>
+                <div class="row">
+                    <div class="col-7 ml-5 pt-3 pb-3 border border-warning bg-info">
+                        <div class="produit_achete pt-3 pb-3 mg-3 border-bottom border-warning">
+                            <img src="images/Yoshi.jpg" width="60" height="60" alt="image_article" /> 
+                            <h5 class="mt-3">Nom de l'article</h5> 
+                            <p class="mt-3">Description de l'article</p>
+                            <p class="mt-3">Quantité: X</p>
+                            <button class="btn btn-danger h-100 mt-2">Supprimer</button>
+                            <p class="mt-3">Prix</p>
+                        </div>
+                        <div class="produit_achete pt-3 pb-3 mg-3 border-bottom border-warning">
+                            <img src="images/Yoshi.jpg" width="60" height="60" alt="image_article" /> 
+                            <h5 class="mt-3">Nom de l'article</h5> 
+                            <p class="mt-3">Description de l'article</p>
+                            <p class="mt-3">Quantité: X</p>
+                            <button class="btn btn-danger h-100 mt-2">Supprimer</button>
+                            <p class="mt-3">Prix</p>
+                        </div>
+                        <div class="produit_achete pt-3 pb-3 mg-3 border-bottom border-warning">
+                            <img src="images/Yoshi.jpg" width="60" height="60" alt="image_article" /> 
+                            <h5 class="mt-3">Nom de l'article</h5> 
+                            <p class="mt-3">Description de l'article</p>
+                            <p class="mt-3">Quantité: X</p>
+                            <button class="btn btn-danger h-100 mt-2">Supprimer</button>
+                            <p class="mt-3">Prix</p>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-5 border border-warning bg-info">
+                        <h3 class="text-center mt-3 mb-5">Formulaire de commande</h3>
+                        <form>
+                            <div class="form-group mt-3">
+                                <label for="firstName" class="w-25">Prénom :</label>
+                                <input type="text" class="form-control w-75" id="firstName" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="lastName" class="w-25">Nom :</label>
+                                <input type="text" class="form-control w-75" id="lastName" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="adress" class="w-25">Adresse :</label>
+                                <input type="text" class="form-control w-75" id="adress" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="city" class="w-25">Ville :</label>
+                                <input type="text" class="form-control w-75" id="city" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="email" class="w-25">Adresse e-mail :</label>
+                                <input type="email" class="form-control w-75" id="email" required>
+                            </div>
+                            <div class="text-center mb-3 mt-5">
+                            <button type="submit" class="btn btn-danger">Commander</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div>
-                    <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" required>
-                </div>
-                <div>
-                    <label for="adresse">Adresse</label>
-                    <input type="text" id="adresse" name="adresse" required>
-                </div>
-                <div>
-                    <label for="ville">Ville</label>
-                    <input type="text" id="ville" name="ville" required>
-                </div>
-                <div>
-                    <label for="email">Adresse e-mail</label>
-                    <input textarea type="email" id="email" name="email" required>
-                </div>
-                <input type="submit" value="Commander" id="commander">
-            </form>
-        </section>
-        <footer>
-            <ul>
-                <h3>A propos</h3>
-                <li>Conditions générales de vente</li>
-                <li>Blog</li>
-                <li>Mentions légales</li>
-            </ul>
-            <ul>
-                <h3>Nos réseaux sociaux</h3>
-                <li><i class="fab fa-facebook-square"></i> Facebook</li>
-                <li><i class="fab fa-twitter"></i> Twitter</li>
-                <li><i class="fab fa-instagram"></i> Instagram</li>
-            </ul>
-        </footer>
-    </div>
-</body>
+                <footer class="container-fluid bg-light mt-5 pt-3 pb-3">
+                    <ul class="list-unstyled list-inline text-center mt-4">
+                      <a href="#"><li class="list-inline-item mr-3">Contact</li></a>
+                      <li class="list-inline-item mr-3">&middot;</li>
+                      <a href="#"><li class="list-inline-item mr-3">Conditions générales de ventes</li></a>
+                      <li class="list-inline-item mr-3">&middot;</li>
+                      <a href="#"><li class="list-inline-item mr-3">Mentions légales</li></a>
+                    </ul>
+                  </footer>
+            </div>
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+               $("#searchInput").on("keyup", function() {
+                  var value = $(this).val().toLowerCase();
+                  $("#productList .card").filter(function() {
+                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                  });
+               });
+            });
+         </script>
+        </div>   
+    </body>
+</html>

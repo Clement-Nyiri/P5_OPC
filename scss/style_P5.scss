@@ -29,3 +29,14 @@ footer{
 footer a{
     color: #29130a;
 }
+
+.produit_achete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-group{
+    display:flex;
+    align-items: center;
+}
