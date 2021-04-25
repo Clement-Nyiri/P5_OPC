@@ -18,14 +18,16 @@
       <div class=" position-sticky sticky-top">
           <header class=" bg-warning container-fluid">
               <div class="row">
-                    <div class="col-3 mt-1 text-center">
+                    <div class="col-3 mt-1">
                       <a class="navbar-brand" href="index.html">
                           <img src="images/logo.png" width="100" height="50" alt="logo-Orinoco" />
                       </a>
                     </div>
-                    <div class="col-6 mt-3">
-                      <input class="form-control" id="searchInput" type="text" placeholder="Rechercher un produit...">
-                    </div> 
+                    <div class="col-6 mb-3 mt-3">
+                      <div class="col">
+                         <input class="form-control" id="searchInput" type="text" placeholder="Rechercher un produit..">
+                      </div>
+                   </div>
                     <div id="panier" class="col-3 mt-3 text-center">
                         <a href="panier.html"><i class="fas fa-shopping-cart"></i>Panier</a>
                     </div> 
@@ -74,7 +76,7 @@
                     <a href="#" class="btn btn-warning stretched-link mx-auto d-block">Voir l'article</a>
                   </div>
                 </div>
-                <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
+                <div class="card mr-5 mt-4 border-secondary shadow" style="width: 20rem;">
                   <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title text-center">Card title</h5>
@@ -83,7 +85,7 @@
                     <a href="#" class="btn btn-warning stretched-link mx-auto d-block">Voir l'article</a>
                   </div>
                 </div>
-                <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
+                <div class="card mr-5 mt-4 border-secondary shadow" style="width: 20rem;">
                   <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title text-center">Card title</h5>
@@ -92,7 +94,7 @@
                     <a href="#" class="btn btn-warning stretched-link mx-auto d-block">Voir l'article</a>
                   </div>
                 </div>
-                <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
+                <div class="card mr-5 mt-4 border-secondary shadow" style="width: 20rem;">
                   <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title text-center">Card title</h5>
@@ -113,7 +115,7 @@
               </div>
           </div>
       </div>
-      <footer class="container-fluid bg-warning mt-5 pt-3 pb-3">
+      <footer class="container-fluid bg-light mt-5 pt-3 pb-3">
         <ul class="list-unstyled list-inline text-center mt-4">
           <a href="#"><li class="list-inline-item">Contact</li></a>
           <li class="list-inline-item">&middot;</li>
@@ -129,15 +131,15 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
-            $(document).ready(function(){
-            $("#searchInput").on("keyup", function() {
+          $(document).ready(function(){
+             $("#searchInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
-                $("#productList .col-10").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                $("#productList .card").filter(function() {
+                   $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
-            });
-            });
-        </script>
+             });
+          });
+       </script>
     </div>
 </body>
 </html>
