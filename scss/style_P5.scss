@@ -9,7 +9,7 @@
 }
 
 #panier i{
-    margin-right: 5%;
+    margin-right: 3%;
 }
 
 #header{
@@ -36,7 +36,17 @@ footer a{
     justify-content: space-between;
 }
 
+.produit_achete a{
+    text-decoration: none;
+    color: black;
+}
+
 .form-group{
     display:flex;
     align-items: center;
 }
+
+.miniatures img:focus{
+    border: 1px black solid;
+}
+
