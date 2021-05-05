@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="css/style_P5.css">
     <!-- FontAwesome Kit-->
     <script src="https://kit.fontawesome.com/2622c81c44.js" crossorigin="anonymous"></script>
-
+    <!-- JavaScript -->
+    
     </head>
 
   <body>
@@ -35,7 +36,7 @@
           </header>
       </div>
 
-        <div class="container-fluid mt-5 mb-4">
+        <div class="container-fluid mt-5 mb-4" id="filtres">
             <div class="row">
                 <div class="col-2 border-right border-danger shadow-sm">
                       <form>
@@ -67,51 +68,6 @@
                       </form>
                 </div>
                 <div class="col-10" id="productList">
-                  <div class="card mr-5 mt-4 shadow" style="width: 20rem">
-                    <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <p class="cart-text text-center font-weight-bold">Prix</p>
-                      <a href="produit.html" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
-                    </div>
-                  </div>
-                  <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
-                    <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Card title</h5>
-                      <p class="card-text">Some quick example text to buldozer build on the card title and make up the bulk of the card's content.</p>
-                      <p class="cart-text text-center font-weight-bold">Prix</p>
-                      <a href="produit.html" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
-                    </div>
-                  </div>
-                  <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
-                    <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <p class="cart-text text-center font-weight-bold">Prix</p>
-                      <a href="produit.html" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
-                    </div>
-                  </div>
-                  <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
-                    <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <p class="cart-text text-center font-weight-bold">Prix</p>
-                      <a href="produit.html" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
-                    </div>
-                  </div>
-                  <div class="card mr-5 mt-4 shadow" style="width: 20rem;">
-                    <img class="card-img-top" src="images/Yoshi.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <p class="cart-text text-center font-weight-bold">Prix</p>
-                      <a href="produit.html" class="btn btn-secondary stretched-link mx-auto d-block">Voir l'article</a>
-                    </div>
-                  </div>
                 </div>
             </div>
         </div>
@@ -130,6 +86,7 @@
           <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+          <!-- Barre de recherche-->
           <script>
             $(document).ready(function(){
               $("#searchInput").on("keyup", function() {
@@ -140,6 +97,8 @@
               });
             });
         </script>
+        <!-- Fin barre de recherche-->
+        <script src="scripts/accueil.js"></script>
       </div>
   </body>
 </html>
