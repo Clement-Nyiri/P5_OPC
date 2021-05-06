@@ -2,19 +2,19 @@
 
 
 class Produit{
-    constructor(varnish, id, name, price, description, imageUrl){
+    constructor(varnish, id, name, price, description, imageUrl){ //Classe de l'objet
         this.varnish = varnish;
         this.id=id;
         this.name=name;
         this.price=price;
         this.description=description;
         this.imageUrl=imageUrl;
-        this.create_card();
+        this.createCard(); //Création du bloc "article" pour chaque nouvel objet via la fonction create_card
     }
-    create_card(){
-            var newProduct = document.createElement("article");
-            var cardOne = document.getElementById('productList');
-            newProduct.innerHTML='<article id="card1" class="card mr-5 mt-4 shadow" style="width: 20rem;"> \
+    createCard(){
+            var nouveauProduit = document.createElement("article");//Nouvel article
+            var card = document.getElementById('productList');// Endroit auquel on ajoute l'article
+            nouveauProduit.innerHTML='<article id="card1" class="card mr-5 mt-4 shadow" style="width: 20rem;"> \
             <img class="card-img-top" style="height: 15rem;" src="'+this.imageUrl+'" alt="Card image cap" >\
             <div class="card-body">\
             <h5 class="card-title text-center">'+this.name+'</h5>\
@@ -22,18 +22,17 @@ class Produit{
             <p class="cart-text text-center font-weight-bold">'+this.price/100+',00 €</p>\
             <a href="produit.html" class="btn btn-secondary stretched-link mx-auto d-block">Voir l\'article</a>\
             </div>\
-            </article>';
-            cardOne.appendChild(newProduct);
-    }
+            </article>'; //html utilisé pour chaque nouveau Produit
+            card.appendChild(nouveauProduit); // Ajout du nouveau produit "dans le html"
+    };
 }
 
 const TableauProduits = new XMLHttpRequest();
 
 TableauProduits.onreadystatechange = function(){
     if (this.readyState==4 && this.status==200){ // Si ok
-        var tt=this.response.split('}'); //Séparation des objets
-        tt.pop(); // Enlève le dernier
-        console.log(tt);
+        var tt=this.response.split('}'); //Séparation des éléments
+        tt.pop(); // Enlève le dernier (problématique)
         var str_debut=['{"varnish":[' , '_id":"', '"name":"' , '"price":' , '"description":"' , ',"imageUrl":"']; //clés à rechercher
         var str_fin=['],"' , '",' , '",' , ',' , '"' , '"' ]; //fin des clés
         for(let i=0;i<tt.length;i++){ //boucle sur chaque objet
@@ -42,9 +41,6 @@ TableauProduits.onreadystatechange = function(){
                 var i_debut=tt[i].indexOf(str_debut[j]); //Indice de la clé [j]
                 var i_fin=tt[i].indexOf(str_fin[j],i_debut+str_debut[j].length+1); // indice de fin de clé [j]
                 var value=tt[i].substring(i_debut+str_debut[j].length,i_fin); // valeurs entre début et fin
-                console.log(str_debut[j]);
-                console.log("debut:"+(i_debut+str_debut[j].length)+" fin:"+i_fin)
-                console.log(value);
                 listeValue.push(value); //Ajout des valeurs dans la variable listeValue déclarée avant
                 console.log(listeValue);
             }
