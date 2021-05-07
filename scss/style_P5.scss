@@ -12,10 +12,6 @@
     margin-right: 3%;
 }
 
-#header{
-    position: sticky;
-}
-
 #productList{
     display: flex;
     flex-direction: row;
@@ -50,7 +46,7 @@ footer a{
     border: 1px black solid;
 }
 
-.ajout-panier button{
-    color:white;
+#footer_produit ul{
+    margin-top: 250px;
 }
 

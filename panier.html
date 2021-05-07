@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/2622c81c44.js" crossorigin="anonymous"></script>
   </head>
   <body>
-        <div id="bloc_page">
+        <div id="bloc_page" class="bg-info">
             <div class=" position-sticky sticky-top">
                 <header class=" bg-warning container-fluid">
                     <div class="row">
@@ -34,7 +34,7 @@
             <div class="container-fluid mt-5 mb-4">
                 <h3 class="ml-5">Panier: X articles</h3>
                 <div class="row">
-                    <ul class="col-7 ml-5 pt-3 pb-3 border border-danger">
+                    <ul class="col-7 ml-5 pt-3 pb-3 border border-danger  bg-light">
                         <li class="produit_achete pt-3 pb-3 mg-3 border-bottom border-danger">
                             <a href="produit.html"><img src="images/Yoshi.jpg" width="70" height="60" alt="image_article" /></a>
                             <a href="produit.html"><h5 class="mt-3 font-weight-bold">Nom de l'article</h5></a>
@@ -60,8 +60,8 @@
                             <p class="mt-3 font-weight-bold">Prix</p>
                         </li>
                     </ul>
-                    <div class="col-4 ml-5 border border-danger bg-info">
-                        <h3 class="text-center mt-3 mb-5 font-weight-bold">Formulaire de commande</h3>
+                    <div class="col-4 ml-5 border border-danger bg-light">
+                        <h3 class="text-center mt-3 mb-3 font-weight-bold">Formulaire de commande</h3>
                         <form>
                             <div class="form-group mt-3">
                                 <label for="firstName" class="w-25 font-weight-bold">Prénom :</label>
@@ -83,13 +83,13 @@
                                 <label for="email" class="w-25 font-weight-bold">Adresse e-mail :</label>
                                 <input type="email" class="form-control w-75" id="email" required>
                             </div>
-                            <div class="text-center mb-3 mt-5">
+                            <div class="text-center mb-3 mt-3">
                             <button type="submit" class="btn btn-secondary">Commander</button>
                             </div>
                         </form>
                     </div>
                 </div>
-                <footer class="container-fluid bg-light mt-5 pt-3 pb-3">
+                <footer class="container-fluid mt-5 pt-3 pb-3">
                     <ul class="list-unstyled list-inline text-center mt-4">
                       <a href="#"><li class="list-inline-item mr-3">Contact</li></a>
                       <li class="list-inline-item mr-3">&middot;</li>
