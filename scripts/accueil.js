@@ -18,7 +18,7 @@ class Produit{
             <img class="card-img-top" style="height: 15rem;" src="'+this.imageUrl+'" alt="Card image cap" >\
             <div class="card-body">\
             <h5 class="card-title text-center">'+this.name+'</h5>\
-            <p class="card-text">'+this.description+'</p>\
+            <p class="card-text text-center">'+this.description+'</p>\
             <p class="cart-text text-center font-weight-bold">'+this.price/100+',00 €</p>\
             <a href="produit.html" class="btn btn-secondary stretched-link mx-auto d-block">Voir l\'article</a>\
             </div>\
