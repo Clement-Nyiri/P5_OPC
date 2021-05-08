@@ -58,3 +58,5 @@ TableauProduits.onreadystatechange = function(){
 };
 TableauProduits.open("GET", "http://localhost:3000/api/furniture/"+idPage , true);
 TableauProduits.send();
+
+//Bouton d'ajout au panier
