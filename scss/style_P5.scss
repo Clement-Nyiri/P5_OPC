@@ -26,13 +26,14 @@ footer a{
     color: #1c0d41;
 }
 
-.produit_achete{
+#produit_achete{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.produit_achete a{
+#produit_achete a{
     text-decoration: none;
     color: black;
 }
@@ -50,3 +51,20 @@ footer a{
     margin-top: 250px;
 }
 
+#paniervide{
+    font-size: 1.8rem;
+    margin-top: 20%;
+}
+
+#prix_panier{
+    font-size: 1.1rem;
+}
+
+#description_panier{
+    width: 55%;
+}
+
+#accueil_titres{
+    font-size: 1.3rem;
+    font-weight: bold;
+}

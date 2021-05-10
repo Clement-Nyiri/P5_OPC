@@ -17,7 +17,7 @@ class Produit{
             nouveauProduit.innerHTML='<article class=" bg-light card mx-auto mt-4 mb-4 shadow" style="width: 20rem;"> \
             <img class="card-img-top" style="height: 15rem;" src="'+this.imageUrl+'" alt="Card image cap" >\
             <div class="card-body">\
-            <h5 class="card-title text-center">'+this.name+'</h5>\
+            <h5 class="card-title text-center" id="accueil_titres">'+this.name+'</h5>\
             <p class="card-text text-center">'+this.description+'</p>\
             <p class="cart-text text-center font-weight-bold">'+new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(this.price/100)+'</p>\
             <a href="produit.html?'+this.id+'" class="btn btn-secondary stretched-link mx-auto d-block">Voir l\'article</a>\
