@@ -15,12 +15,12 @@ if (produitsDejaPresents === null){
     //Boucle sur chaque produit dans le localStorage
     for(k=0; k < produitsDejaPresents.length; k++){
         interieurPanier = interieurPanier + `<li class="pt-2 pb-2 border-bottom border-danger" id="produit_achete">
-        <a href="produit.html?${produitsDejaPresents[k].id}"><img src="${produitsDejaPresents[k].image}" width="70" height="60" alt="image_article" /></a>
-        <a href="produit.html?${produitsDejaPresents[k].id}"><h5 class="font-weight-bold ml-2 text-wrap">${produitsDejaPresents[k].name}</h5></a> 
-        <p class="mt-2 ml-2" id="description_panier">${produitsDejaPresents[k].description}</p>
-        <p class="mt-2 ml-n2 mr-1">Qté:${produitsDejaPresents[k].quantity}</p>
+        <a href="produit.html?${produitsDejaPresents[k].id}"><img class="ml-lg-auto mr-lg-n1 ml-md-n2" id="image_panier" src="${produitsDejaPresents[k].image}" width="70" height="60" alt="image_article" /></a>
+        <a href="produit.html?${produitsDejaPresents[k].id}"><h5 id="nom_panier" class="font-weight-bold ml-lg-2 ml-md-1 text-decoration-none">${produitsDejaPresents[k].name}</h5></a> 
+        <p class="mt-lg-2 ml-lg-2" id="description_panier">${produitsDejaPresents[k].description}</p>
+        <p class="mt-lg-2 mr-lg-1 font-weight-bold">Qté:${produitsDejaPresents[k].quantity}</p>
         <button class="btn btn-dark h-100 mr-1" id="btn-supprimer" data-num="${k}">Supprimer</button>
-        <p class="font-weight-bold mt-2" id="prix_panier">${produitsDejaPresents[k].price}</p>
+        <p class="font-weight-bold mt-2 mr-lg-2 mr-md-n2" id="prix_panier">${produitsDejaPresents[k].price}</p>
         </li>`;
     }
     

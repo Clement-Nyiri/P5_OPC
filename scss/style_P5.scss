@@ -2,6 +2,7 @@
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+//------------------------------Header/Footer/General------------------------------\\
 #panier a{
     text-decoration: none;
     color: white;
@@ -12,12 +13,6 @@
     margin-right: 3%;
 }
 
-#productList{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 footer{
     font-size: 1.1em;
 }
@@ -26,6 +21,44 @@ footer a{
     color: #1c0d41;
 }
 
+#fleche_retour{
+    font-size: 1.2em;
+    color: white;
+    margin-top: 30%;
+    text-decoration: none;
+}
+
+@media all and (min-width: 992px) and (max-width: 1919px){
+
+//------------------------------index PC------------------------------\\
+#productList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#accueil_titres{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+//------------------------------produit PC------------------------------\\
+#footer_produit ul{
+    margin-top: 250px;
+}
+#img_produit{
+    height: 100%;
+    width: 100%;
+    min-height: 200px;
+    min-width: 175px;
+}
+#quantite{
+    width: 70px;
+}
+#label_qte{
+    margin-left:-8px;
+}
+//------------------------------panier PC------------------------------\\
 #produit_achete{
     display: flex;
     flex-direction: row;
@@ -33,38 +66,147 @@ footer a{
     align-items: center;
 }
 
+#paniervide{
+    font-size: 1.8rem;
+    margin-top: 20%;
+}
+
 #produit_achete a{
     text-decoration: none;
     color: black;
 }
 
-.form-group{
-    display:flex;
-    align-items: center;
+#description_panier{
+    width: 40%;
+    word-break: break-all;
+    margin-right: 2%;
 }
 
-.miniatures img:focus{
-    border: 1px black solid;
-}
-
-#footer_produit ul{
-    margin-top: 250px;
-}
-
-#paniervide{
-    font-size: 1.8rem;
-    margin-top: 20%;
+#nom_panier{
+    margin-right: 0;
+    width: 25%;
 }
 
 #prix_panier{
     font-size: 1.1rem;
 }
 
-#description_panier{
-    width: 55%;
+.form-group{
+    display:flex;
+    align-items: center;
+}
 }
 
-#accueil_titres{
-    font-size: 1.3rem;
-    font-weight: bold;
+//Différents supports
+
+@media all and (min-width: 320px) and (max-width: 767px){// version mobile
+    //----------------------------Panier Mobile----------------------------------\\
+    .form-group{
+        display: flex;
+    }
+    #paniervide{
+        font-size: 1.8rem;
+        margin-top: 20%;
+    }
+
+    //------------------------------index Mobile------------------------------\\
+
+    #productList{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #accueil_titres{
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    //------------------------------produit Mobile------------------------------\\
+    #img_produit {
+        margin-left: 20%;
+        margin-bottom: 10%;
+        margin-top: -5%;
+        height: 100%;
+        width: 60%;
+    }
+    #produit article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #AjouterPanier{
+        margin-top: 10%;
+        margin-left: 23%;
+        width: 50%;
+    }
+    #quantite{
+        width: 75px;
+    }
+    #label_qte{
+        margin-left:-8px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px){ // version tablette
+    
+    //----------------------------Panier Tabelette----------------------------------\\
+    #produit_achete{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #paniervide{
+        font-size: 1.8rem;
+        margin-top: 20%;
+    }
+
+    #description_panier{
+        width: 30%;
+        margin-left: -2%;
+    }
+
+    #nom_panier{
+        width: 10%;
+        margin-right: -10%;
+        text-align: center;
+        color: black;
+    }
+
+    .form-group{
+        display: flex;
+    }
+
+    //------------------------------index Tablette------------------------------\\
+
+    #productList{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #accueil_titres{
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    //------------------------------produit Tablette------------------------------\\
+    #img_produit{
+        height: 100%;
+        width: 100%;
+        min-height: 200px;
+        min-width: 175px;
+    }
+    #quantite{
+        width: 70px;
+    }
+    #label_qte{
+        margin-left:-8px;
+    }
+}
+
+@media all and (min-width: 1920px){//version Très grand
+
 }

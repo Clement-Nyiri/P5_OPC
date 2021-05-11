@@ -17,12 +17,13 @@
             <div class=" position-sticky sticky-top">
                 <header class=" bg-warning container-fluid">
                     <div class="row">
-                        <div class="col-3 ml-3 mt-n2">
-                            <a class="navbar-brand mt-1 ml-3" href="index.html">
-                                <img src="images/logo.png" width="100" height="50" alt="logo-Orinoco" />
+                        <div class="col-12 col-lg-4 col-md-5 col-sm-6 ml-3 mt-0">
+                            <a href="index.html" id="fleche_retour"><i class="fa fa-arrow-left" aria-hidden="true"></i>Accueil</a>
+                            <a class="navbar-brand mt-0 ml-3" href="index.html">
+                                <img class="mt-n1 ml-5 ml-sm-2" src="images/logo.png" width="100" height="50" alt="logo-Orinoco" />
                             </a>
                         </div>
-                        <div class="col-6 ml-n3 my-auto">
+                        <div class="col-8 col-lg-6 col-md-7 col-sm-5 ml-md-n3 mx-auto pb-2 pb-sm-0 my-auto">
                             <div class="col">
                             <input class="form-control" id="searchInput" type="text" placeholder="Rechercher un produit..">
                             </div>
@@ -32,15 +33,17 @@
             </div>
 
             <div class="container-fluid mt-5 mb-4">
-                <h3 class="ml-5 mb-4"><u>Votre panier</u>:</h3>
+                <h3 class="ml-lg-5 mb-4 ml-sm-3"><u>Votre panier</u>:</h3>
                 <div class="row">
-                    <ul class="col-7 ml-5 pt-3 pb-3 border border-danger bg-light" id="panier_produit"></ul>
-                    <div class="col-4 ml-5 border border-danger bg-light" style="height: 430px">
-                        <h3 class="text-center mt-3 mb-3 font-weight-bold">Formulaire de commande</h3>
+                    <ul class="col-lg-11 col-sm-11 col-11 mx-auto ml-lg-5 pt-3 pb-3 border border-danger bg-light" id="panier_produit"></ul>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 col-sm-11 col-11 mx-auto mt-sm-5 mt-lg-3 border border-danger bg-light" style="height: 430px">
+                        <h3 class="text-center mt-3 mb-3 font-weight-bold">Passer la commande</h3>
                         <form>
                             <div class="form-group mt-3">
                                 <label for="firstName" class="w-25 font-weight-bold">Prénom :</label>
-                                <input type="text" class="form-control w-75" id="firstName" required>
+                                <input type="text" class="form-control w-75 w-md-50" id="firstName" required>
                             </div>
                             <div class="form-group mt-3">
                                 <label for="lastName" class="w-25 font-weight-bold">Nom :</label>
@@ -64,16 +67,17 @@
                         </form>
                     </div>
                 </div>
-                <footer class="container-fluid mt-5 pt-3 pb-3">
-                    <ul class="list-unstyled list-inline text-center mt-4">
-                      <a href="#"><li class="list-inline-item mr-3">Contact</li></a>
-                      <li class="list-inline-item mr-3">&middot;</li>
-                      <a href="#"><li class="list-inline-item mr-3">Conditions générales de ventes</li></a>
-                      <li class="list-inline-item mr-3">&middot;</li>
-                      <a href="#"><li class="list-inline-item mr-3">Mentions légales</li></a>
-                    </ul>
-                  </footer>
             </div>
+
+            <footer class="container-fluid mt-5 pt-3 pb-3">
+                <ul class="list-unstyled list-inline text-center mt-4">
+                    <a href="#"><li class="list-inline-item mr-3">Contact</li></a>
+                    <li class="list-inline-item mr-3">&middot;</li>
+                    <a href="#"><li class="list-inline-item mr-3">Conditions générales de ventes</li></a>
+                    <li class="list-inline-item mr-3">&middot;</li>
+                    <a href="#"><li class="list-inline-item mr-3">Mentions légales</li></a>
+                </ul>
+            </footer>
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

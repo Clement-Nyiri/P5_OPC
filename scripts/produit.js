@@ -4,6 +4,12 @@ const queryStringUrlId = window.location.search;
 //extraire l'id
 const idPage = queryStringUrlId.slice(1);
 
+var nbrPanier = JSON.parse(localStorage.getItem("panier"));
+var navPanier= document.getElementById("panier");
+var nombrePanier = document.createElement("span");
+nombrePanier.innerHTML= '<a href="panier.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier('+ nbrPanier.length +')</a>';
+navPanier.appendChild(nombrePanier);
+
 
 class Produit{
      //Classe de l'objet
@@ -18,31 +24,31 @@ class Produit{
         this.adaptPage();
     }
     adaptPage(){
-        var adapt = document.createElement ("div")
+        var adapt = document.createElement ("article")
         var Name= document.getElementById("produit");
         //HTML à ajouter dans le document
         var innerHTML1 = '<h2 class="mt-5 text-center font-weight-bold"><u>'+this.name+'</u></h2>\
                 <div class="row mt-5">\
-                    <div class="col-3">\
-                        <img class=" border border-info img-responsive center-block shadow-sm" width="350" height="350" src="'+this.imageUrl+'" alt="image_produit" />\
+                    <div class="my-auto col-md-3">\
+                        <img id="img_produit" class="border border-info img-responsive center-block shadow-sm" src="'+this.imageUrl+'" alt="image_produit" />\
                     </div>\
-                    <div class="col-6 my-auto ml-4 text-center">\
+                    <div class="col-md-6 my-auto text-center">\
                         <p>'+this.description+'</p>\
                         <p class="font-weight-bold">'+new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(this.price/100)+'</p>\
                         <form>\
-                        <label for="vernis" class="ml-n5 mt-5"><strong>Vernis</strong>:</label>\
+                        <p></p><label for="vernis" class="ml-md-0 mt-3"><strong>Vernis</strong>:</label>\
                         <select name="vernis" id="vernis">';
         for(let i=0;i<this.varnish.length;i++){
             innerHTML1 = innerHTML1 + '<option value="'+this.varnish[i]+'" selected>'+this.varnish[i]+'</option>';
         };
         adapt.innerHTML= innerHTML1 +
-                        '</select>\
-                        <label for="quantite" class="ml-5"><strong>Quantité</strong> :</label>\
-                        <input id="quantite" type="number" name="quantite" value="1" step="1">\
+                        '</select></p>\
+                        <p id="label_qte"><label for="quantite" class="ml-md-1"><strong>Quantité</strong> :</label>\
+                        <input id="quantite" type="number" name="quantite" value="1" step="1"></p>\
                         </form>\
                     </div>\
-                    <div class="col-2 my-auto ml-5">\
-                        <button id="AjouterPanier" class="btn btn-secondary btn-lg"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>\
+                    <div class="col-md-3 my-auto">\
+                        <button id="AjouterPanier" class="btn btn-secondary btn-lg mt-sm-4"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>\
                     </div>\
                 </div>';
         Name.appendChild(adapt);
@@ -73,10 +79,10 @@ class Produit{
 
             //---- Local Storage ----  JSON.parse = lecture JSON.stringify = Ecriture
             // On cherche s'il y a déjà quelque chose
-            let panierDejaPresent = JSON.parse(localStorage.getItem("panier"));
+            let produitsDejaPresents = JSON.parse(localStorage.getItem("panier"));
             const ajoutAuPanier = () =>{
-                panierDejaPresent.push(produitAEnvoyer);
-                localStorage.setItem("panier", JSON.stringify(panierDejaPresent));
+                produitsDejaPresents.push(produitAEnvoyer);
+                localStorage.setItem("panier", JSON.stringify(produitsDejaPresents));
             }
 
             //popup après ajout
@@ -85,13 +91,13 @@ class Produit{
             } 
 
             //Si panier existe déjà
-            if (panierDejaPresent){
+            if (produitsDejaPresents){
                 ajoutAuPanier();
                 popupAjout();
             }
             //Si panier n'existe pas
             else {
-                panierDejaPresent = [];
+                produitsDejaPresents= [];
                 ajoutAuPanier();
                 popupAjout();
             }    
