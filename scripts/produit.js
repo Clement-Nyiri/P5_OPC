@@ -43,7 +43,7 @@ class Produit{
         };
         adapt.innerHTML= innerHTML1 +
                         '</select></p>\
-                        <p id="label_qte"><label for="quantite" class="ml-md-1"><strong>Quantité</strong> :</label>\
+                        <p id="label_qte"><label for="quantite" class="ml-md-1"><strong>Quantité</strong>:</label>\
                         <input id="quantite" type="number" name="quantite" value="1" step="1"></p>\
                         </form>\
                     </div>\
