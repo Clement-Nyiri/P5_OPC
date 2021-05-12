@@ -1,8 +1,10 @@
 /* Clement Nyiri 03/05/2021 Projet 5 OpenClassroom */
 var nbrPanier = JSON.parse(localStorage.getItem("panier"));
 var navPanier= document.getElementById("panier");
-var nombrePanier = document.createElement("span");
-nombrePanier.innerHTML= '<a href="panier.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier('+ nbrPanier.length +')</a>';
+var nombrePanier = document.createElement("span"); if(nbrPanier == null){
+    nombrePanier.innerHTML= '<a href="panier.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier</a>'
+}else {
+nombrePanier.innerHTML= '<a href="panier.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier('+ nbrPanier.length +')</a>';}
 navPanier.appendChild(nombrePanier);
 
 class Produit{
@@ -18,7 +20,7 @@ class Produit{
     createCard(){
             var nouveauProduit = document.createElement("article");//Nouvel article
             var card = document.getElementById('productList');// Endroit auquel on ajoute l'article
-            nouveauProduit.innerHTML='<article class="ml-sm-2 bg-light card mt-4 mb-4 shadow" style="width: 19rem;"> \
+            nouveauProduit.innerHTML='<article class="ml-sm-3 bg-light card mt-4 mb-4 shadow" style="width: 19rem;"> \
             <img class="card-img-top" style="height: 15rem;" src="'+this.imageUrl+'" alt="Card image cap" >\
             <div class="card-body">\
             <h5 class="card-title text-center" id="accueil_titres">'+this.name+'</h5>\

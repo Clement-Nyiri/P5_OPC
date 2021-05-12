@@ -7843,6 +7843,7 @@ footer a {
   #productList {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap; }
 
   #accueil_titres {
@@ -7871,8 +7872,7 @@ footer a {
     align-items: center; }
 
   #paniervide {
-    font-size: 1.8rem;
-    margin-top: 20%; }
+    font-size: 1.8rem; }
 
   #produit_achete a {
     text-decoration: none;

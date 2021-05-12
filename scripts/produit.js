@@ -6,8 +6,10 @@ const idPage = queryStringUrlId.slice(1);
 
 var nbrPanier = JSON.parse(localStorage.getItem("panier"));
 var navPanier= document.getElementById("panier");
-var nombrePanier = document.createElement("span");
-nombrePanier.innerHTML= '<a href="panier.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier('+ nbrPanier.length +')</a>';
+var nombrePanier = document.createElement("span"); if(nbrPanier == null){
+    nombrePanier.innerHTML= '<a href="panier.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier</a>'
+}else {
+nombrePanier.innerHTML= '<a href="panier.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier('+ nbrPanier.length +')</a>';}
 navPanier.appendChild(nombrePanier);
 
 
@@ -44,7 +46,7 @@ class Produit{
         adapt.innerHTML= innerHTML1 +
                         '</select></p>\
                         <p id="label_qte"><label for="quantite" class="ml-md-1"><strong>Quantité</strong>:</label>\
-                        <input id="quantite" type="number" name="quantite" value="1" step="1"></p>\
+                        <input id="quantite" type="number" name="quantite" value="1" min="1" step="1"></p>\
                         </form>\
                     </div>\
                     <div class="col-md-3 my-auto">\
@@ -70,7 +72,7 @@ class Produit{
             let produitAEnvoyer = {
                 name: this.name,
                 id: this.id,
-                price: Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(this.price/100),
+                price: this.price,
                 image: this.imageUrl,
                 description: this.description,
                 quantity: quantite,
@@ -87,19 +89,27 @@ class Produit{
 
             //popup après ajout
             const popupAjout = () =>{
-                window.alert(`${this.name} a bien été ajouté au panier`)
+                window.alert(`${this.name} a bien été ajouté au panier`);
+                document.location.reload();
             } 
 
             //Si panier existe déjà
             if (produitsDejaPresents){
+                if(quantite <=0){
+                    window.alert(`La quantité ne doit pas être inférieure à 0`);
+                }else{
                 ajoutAuPanier();
-                popupAjout();
+                popupAjout();}
             }
             //Si panier n'existe pas
             else {
+                if(quantite <= 0){
+                    window.alert(`La quantité ne doit pas être inférieure à 0`);
+                }else{
                 produitsDejaPresents= [];
                 ajoutAuPanier();
                 popupAjout();
+                }
             }    
         });
     }
