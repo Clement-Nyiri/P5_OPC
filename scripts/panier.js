@@ -46,42 +46,131 @@ if (produitsDejaPresents === null){
     }
 };
 
-var nbrPanier = JSON.parse(localStorage.getItem("panier"));
-if(nbrPanier != null){
+if(produitsDejaPresents != null){//Si le panier n'est pas null, création du form
     var form= document.getElementById("formulaire");
-    var formCommande = document.createElement('div id="formulaire" class="col-lg-5 col-sm-11 col-11 mx-auto mt-sm-5 mt-lg-3 border border-danger bg-light" style="height: 430px');
+    var formCommande = document.createElement('div');
+    formCommande.classList.add("col-lg-6", "col-sm-8", "col-11", "mx-auto", "mt-sm-5", "mt-lg-3", "border", "border-danger", "bg-light");
     formCommande.innerHTML='<div>\
     <h3 class="text-center mt-3 mb-3 font-weight-bold">Passer la commande</h3>\
     <form>\
         <div class="form-group mt-3">\
-            <label for="firstName" class="w-25 font-weight-bold">Prénom :</label>\
+            <label for="firstName" class="w-25 font-weight-bold">Prénom : </label><span id="firstNameErreur" class="text-dark"></span>\
             <input type="text" class="form-control w-75 w-md-50" id="firstName" required>\
         </div>\
         <div class="form-group mt-3">\
-            <label for="lastName" class="w-25 font-weight-bold">Nom :</label>\
+            <label for="lastName" class="w-25 font-weight-bold">Nom :</label><span id="lastNameErreur" class="text-dark"></span>\
             <input type="text" class="form-control w-75" id="lastName" required>\
         </div>\
         <div class="form-group mt-3">\
-            <label for="adress" class="w-25 font-weight-bold">Adresse :</label>\
+            <label for="adress" class="w-25 font-weight-bold">Adresse :</label><span id="adressErreur" class="text-dark"></span>\
             <input type="text" class="form-control w-75" id="adress" required>\
         </div>\
         <div class="form-group mt-3">\
-            <label for="city" class="w-25 font-weight-bold">Ville :</label>\
+            <label for="city" class="w-25 font-weight-bold">Ville :</label><span id="cityErreur" class="text-dark"></span>\
             <input type="text" class="form-control w-75" id="city" required>\
         </div>\
         <div class="form-group mt-3">\
-            <label for="email" class="w-25 font-weight-bold">Adresse e-mail :</label>\
+            <label for="email" class="w-25 font-weight-bold">Adresse e-mail :</label><span id="emailErreur" class="text-dark"></span>\
             <input type="email" class="form-control w-75" id="email" required>\
         </div>\
         <div class="text-center mb-3 mt-4">\
-        <button type="submit" class="btn btn-secondary">Commander</button>\
+        <button id="commander" type="submit" class="btn btn-secondary">Commander</button>\
         </div>\
     </form>\
     </div>' ;
-    form.appendChild(formCommande);
+    form.appendChild(formCommande); // ajout du form au doc
 }
-    
 
+//Formulaire commande + event Bouton commander
+var commande= document.getElementById("commander");
+commande.addEventListener('click', (e)=>{
+    e.preventDefault;
+    // Récupération des valeurs du formulaire rempli 1 + création d'un objet avec
+    const contact = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        adress: document.getElementById('adress').value,
+        city: document.getElementById('city').value,
+        email: document.getElementById('email').value
+    }
+
+    //----------------------------Verif formulaire-------------------------
+    const regExFirstLastCity = (value) =>{
+        return /^[A-Za-z]{3,20}$/.test(value);
+    }
+    //firstName
+    function checkFirstName (){
+        const leFirstName = contact.firstName;
+        if(regExFirstLastCity(leFirstName)){
+            document.getElementById("firstNameErreur").textContent = "";
+            return true;
+        }else{
+            document.getElementById("firstNameErreur").textContent = "Veuillez remplir correctement ce champ";
+            return false;
+        }
+    };
+    //lastName
+    function checkLastName(){
+        const leLastName = contact.lastName;
+        if(regExFirstLastCity(leLastName)){
+            document.getElementById("lastNameErreur").textContent = "";
+            return true;
+        }else{
+            document.getElementById("lastNameErreur").textContent = "Veuillez remplir correctement ce champ";
+            return false;
+        }
+    };
+
+    //adress
+    function checkAdress(){
+        const laAdress = contact.adress;
+        if(/^[A-Za-z0-9\s]{6,60}$/.test(laAdress)){
+            document.getElementById("adressErreur").textContent = "";
+            return true;
+        }else{
+            document.getElementById("adressErreur").textContent = "Veuillez remplir correctement ce champ";
+            return false;
+        }
+    };
+
+    //city
+    function checkCity (){
+        const laCity = contact.city;
+        if(regExFirstLastCity(laCity)){
+            document.getElementById("cityErreur").textContent = "";
+            return true;
+        }else{
+            document.getElementById("cityErreur").textContent = "Veuillez remplir correctement ce champ";
+            return false;
+        }
+    };
+
+    //email
+    function checkEmail(){
+        const leEmail = contact.email;
+        if(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(leEmail)){
+            document.getElementById("emailErreur").textContent = "";
+            return true;
+        }else{
+            document.getElementById("emailErreur").textContent = "Veuillez remplir correctement ce champ";
+            return false;
+        }
+    };
+    
+    
+    if(checkFirstName() && checkLastName() && checkAdress && checkCity() && checkEmail()){
+    //Ajout dans le localStorage
+        localStorage.setItem("formulaireCommande", JSON.stringify(contact));
+    } else{
+        alert("Veuillez remplir correctement le formulaire");
+    }
+
+    //Formulaire + Produits à envoyer au serveur
+    const aEnvoyer = {
+        produitsDejaPresents,
+        contact
+    }
+});
 
 
 
