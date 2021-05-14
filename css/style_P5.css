@@ -7901,6 +7901,9 @@ footer a {
     font-size: 1.8rem;
     margin-top: 20%; }
 
+  #panier_produit {
+    list-style-type: none; }
+
   #productList {
     display: flex;
     flex-direction: row;

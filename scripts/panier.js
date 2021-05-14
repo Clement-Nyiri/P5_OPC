@@ -96,7 +96,7 @@ commande.addEventListener('click', (e)=>{
 
     //----------------------------Verif formulaire-------------------------
     const regExFirstLastCity = (value) =>{
-        return /^[A-Za-z]{3,20}$/.test(value);
+        return /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(value);
     }
     //firstName
     function checkFirstName (){
@@ -155,21 +155,39 @@ commande.addEventListener('click', (e)=>{
             document.getElementById("emailErreur").textContent = "Veuillez remplir correctement ce champ";
             return false;
         }
-    };
-    
+    }; 
     
     if(checkFirstName() && checkLastName() && checkAdress && checkCity() && checkEmail()){
     //Ajout dans le localStorage
-        localStorage.setItem("formulaireCommande", JSON.stringify(contact));
+        localStorage.setItem("contact", JSON.stringify(contact));
+        let idAEnvoyer=[];
+        for(n=0; n<produitsDejaPresents.length;n++){
+            idProduct = produitsDejaPresents[n].id;
+                for(o=0; o<produitsDejaPresents[n].quantity;o++){
+                idAEnvoyer.push(idProduct);  
+                }
+        };
+    
+
+        //Formulaire + Produits à envoyer au serveur
+        const aEnvoyer = {
+            idAEnvoyer,
+            contact,
+        };
+        console.log(aEnvoyer);
+
+        //Envoi de aEnvoyer au serveur
+        var promise = new XMLHttpRequest();
+        promise.open("POST", "http://localhost:3000/api/furniture/order", true);
+        promise.setRequestHeader('Content-Type', 'application/json');
+        promise.send(JSON.stringify(aEnvoyer));
+        console.log(promise);
+        console.log("OK");
     } else{
         alert("Veuillez remplir correctement le formulaire");
     }
-
-    //Formulaire + Produits à envoyer au serveur
-    const aEnvoyer = {
-        produitsDejaPresents,
-        contact
-    }
+    
+    
 });
 
 
