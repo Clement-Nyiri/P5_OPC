@@ -95,6 +95,52 @@ footer a{
     display:flex;
     align-items: center;
 }
+
+//-------------------------Page confirmation commande PC-----------------------------\\
+#bloc_page_thx{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#logo_thx{
+    margin-top: 5%;
+}
+
+#logo_thx img{
+    height: 100%;
+    width: 100%;
+}
+
+#text-thx{
+    text-align: center;
+}
+
+#remerciement1{
+    margin:auto;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+#remerciement2{
+    font-size: 1.2em;
+}
+
+#btn-thx{
+    margin-top: 5%;
+}
+
+#btn-thx button{
+    background-color: #003049;
+    color: white;
+    border: 0px solid white;
+    border-radius: 5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    height: 50px;
+    width: 300px;
+}
 }
 
 //Différents supports
@@ -150,6 +196,52 @@ footer a{
     #label_qte{
         margin-left:-8px;
     }
+
+    //-------------------------Page confirmation commande Mobile-----------------------------\\
+#bloc_page_thx{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#logo_thx{
+    margin-top: 5%;
+}
+
+#logo_thx img{
+    height: 100%;
+    width: 100%;
+}
+
+#text-thx{
+    text-align: center;
+}
+
+#remerciement1{
+    margin:auto;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+#remerciement2{
+    font-size: 1.2em;
+}
+
+#btn-thx{
+    margin-top: 5%;
+}
+
+#btn-thx button{
+    background-color: #003049;
+    color: white;
+    border: 0px solid white;
+    border-radius: 5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    height: 50px;
+    width: 300px;
+}
 }
 
 @media all and (min-width: 768px) and (max-width: 991px){ // version tablette
@@ -209,6 +301,53 @@ footer a{
     #label_qte{
         margin-left:-8px;
     }
+
+    //-------------------------Page confirmation commande tablette-----------------------------\\
+#bloc_page_thx{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#logo_thx{
+    margin-top: 5%;
+}
+
+#logo_thx img{
+    height: 100%;
+    width: 100%;
+}
+
+#text-thx{
+    text-align: center;
+}
+
+#remerciement1{
+    margin:auto;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+#remerciement2{
+    font-size: 1.2em;
+    margin:auto;
+}
+
+#btn-thx{
+    margin-top: 7%;
+}
+
+#btn-thx button{
+    background-color: #003049;
+    color: white;
+    border: 0px solid white;
+    border-radius: 5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    height: 50px;
+    width: 300px;
+}
 }
 
 @media all and (min-width: 1920px){//version Très grand

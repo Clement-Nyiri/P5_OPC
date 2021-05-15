@@ -51,12 +51,11 @@ TableauProduits.onreadystatechange = function(){
                 listeValue.push(value); //Ajout des valeurs dans la variable listeValue déclarée avant
                 console.log(listeValue);
             }
-            var newProduct= new Produit(listeValue[0], listeValue[1], listeValue[2], listeValue[3], listeValue[4], listeValue[5]); //Création d'objets à partir des listes
-            
+            var newProduct= new Produit(listeValue[0], listeValue[1], listeValue[2], listeValue[3], listeValue[4], listeValue[5]); //Création d'objets à partir des listes   
         }
     }
 };
-TableauProduits.open("GET", "http://localhost:3000/api/furniture/", true);
+TableauProduits.open("GET", "http://localhost:3000/api/furniture", true);
 TableauProduits.send();
 
 

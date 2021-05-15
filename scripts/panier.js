@@ -1,6 +1,5 @@
 // Recupération du localStorage
 let produitsDejaPresents = JSON.parse(localStorage.getItem("panier"));
-
 // Panier dynamique
 const panierProduit = document.getElementById("panier_produit");
 
@@ -51,7 +50,7 @@ if(produitsDejaPresents != null){//Si le panier n'est pas null, création du for
     var formCommande = document.createElement('div');
     formCommande.classList.add("col-lg-6", "col-sm-8", "col-11", "mx-auto", "mt-sm-5", "mt-lg-3", "border", "border-danger", "bg-light");
     formCommande.innerHTML='<div>\
-    <h3 class="text-center mt-3 mb-3 font-weight-bold">Passer la commande</h3>\
+    <h3 class="text-center mt-3 mb-3 font-weight-bold">Formulaire de commande</h3>\
     <form>\
         <div class="form-group mt-3">\
             <label for="firstName" class="w-25 font-weight-bold">Prénom : </label><span id="firstNameErreur" class="text-dark"></span>\
@@ -74,7 +73,7 @@ if(produitsDejaPresents != null){//Si le panier n'est pas null, création du for
             <input type="email" class="form-control w-75" id="email" required>\
         </div>\
         <div class="text-center mb-3 mt-4">\
-        <button id="commander" type="submit" class="btn btn-secondary">Commander</button>\
+        <button id="commander" type="submit" class="btn btn-secondary"><strong>Commander</strong></button>\
         </div>\
     </form>\
     </div>' ;
@@ -84,14 +83,14 @@ if(produitsDejaPresents != null){//Si le panier n'est pas null, création du for
 //Formulaire commande + event Bouton commander
 var commande= document.getElementById("commander");
 commande.addEventListener('click', (e)=>{
-    e.preventDefault;
+    e.preventDefault();
     // Récupération des valeurs du formulaire rempli 1 + création d'un objet avec
     const contact = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        adress: document.getElementById('adress').value,
-        city: document.getElementById('city').value,
-        email: document.getElementById('email').value
+        "firstName": document.getElementById('firstName').value,
+        "lastName": document.getElementById('lastName').value,
+        "address": document.getElementById('adress').value,
+        "city": document.getElementById('city').value,
+        "email": document.getElementById('email').value
     }
 
     //----------------------------Verif formulaire-------------------------
@@ -160,35 +159,15 @@ commande.addEventListener('click', (e)=>{
     if(checkFirstName() && checkLastName() && checkAdress && checkCity() && checkEmail()){
     //Ajout dans le localStorage
         localStorage.setItem("contact", JSON.stringify(contact));
-        let idAEnvoyer=[];
-        for(n=0; n<produitsDejaPresents.length;n++){
-            idProduct = produitsDejaPresents[n].id;
-                for(o=0; o<produitsDejaPresents[n].quantity;o++){
-                idAEnvoyer.push(idProduct);  
-                }
-        };
-    
 
-        //Formulaire + Produits à envoyer au serveur
-        const aEnvoyer = {
-            idAEnvoyer,
-            contact,
-        };
-        console.log(aEnvoyer);
-
-        //Envoi de aEnvoyer au serveur
-        var promise = new XMLHttpRequest();
-        promise.open("POST", "http://localhost:3000/api/furniture/order", true);
-        promise.setRequestHeader('Content-Type', 'application/json');
-        promise.send(JSON.stringify(aEnvoyer));
-        console.log(promise);
-        console.log("OK");
+        //Redirection vers commande_thx.html
+        window.location.replace("commande_thx.html");
     } else{
-        alert("Veuillez remplir correctement le formulaire");
+    alert("Veuillez remplir correctement le formulaire");
     }
-    
-    
+     
 });
+
 
 
 
