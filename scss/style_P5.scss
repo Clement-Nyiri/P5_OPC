@@ -3,6 +3,10 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 //------------------------------Header/Footer/General------------------------------\\
+
+h2{
+    display: none;
+}
 #panier a{
     text-decoration: none;
     color: white;
@@ -34,8 +38,11 @@ footer a{
 #productList{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     flex-wrap: wrap;
+}
+
+#productList article{
+    margin-left: 5%;
 }
 
 #accueil_titres{
@@ -128,18 +135,7 @@ footer a{
 }
 
 #btn-thx{
-    margin-top: 5%;
-}
-
-#btn-thx button{
-    background-color: #003049;
-    color: white;
-    border: 0px solid white;
-    border-radius: 5rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    height: 50px;
-    width: 300px;
+    margin-top: 3%;
 }
 }
 
@@ -229,19 +225,9 @@ footer a{
 }
 
 #btn-thx{
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
-#btn-thx button{
-    background-color: #003049;
-    color: white;
-    border: 0px solid white;
-    border-radius: 5rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    height: 50px;
-    width: 300px;
-}
 }
 
 @media all and (min-width: 768px) and (max-width: 991px){ // version tablette
@@ -336,17 +322,6 @@ footer a{
 
 #btn-thx{
     margin-top: 7%;
-}
-
-#btn-thx button{
-    background-color: #003049;
-    color: white;
-    border: 0px solid white;
-    border-radius: 5rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    height: 50px;
-    width: 300px;
 }
 }
 
