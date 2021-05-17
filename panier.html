@@ -24,9 +24,7 @@
                             </a>
                         </div>
                         <div class="col-8 col-lg-6 col-md-7 col-sm-5 ml-md-n3 mx-auto pb-2 pb-sm-0 my-auto">
-                            <div class="col">
                             <input class="form-control" id="searchInput" type="text" placeholder="Rechercher un produit..">
-                            </div>
                         </div>
                     </div>
                 </header>
@@ -61,7 +59,7 @@
             $(document).ready(function(){
               $("#searchInput").on("keyup", function() {
                   var value = $(this).val().toLowerCase();
-                  $("#productList .card").filter(function() {
+                  $("#panier_produit #produit_achete").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                   });
               });

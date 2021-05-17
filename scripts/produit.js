@@ -36,7 +36,7 @@ class Produit{
                     </div>\
                     <div class="col-md-6 my-auto text-center">\
                         <p>'+this.description+'</p>\
-                        <p class="font-weight-bold">'+new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(this.price/100)+'</p>\
+                        <p id="prix_produit" class="font-weight-bold">'+new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(this.price/100)+'</p>\
                         <form>\
                         <p></p><label for="vernis" class="ml-md-0 mt-3"><strong>Vernis</strong>:</label>\
                         <select name="vernis" id="vernis">';
