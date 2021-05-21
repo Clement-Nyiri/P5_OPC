@@ -2,25 +2,25 @@
 let produitsDejaPresents = JSON.parse(localStorage.getItem("panier"));
 // Panier dynamique
 const panierProduit = document.getElementById("panier_produit");
-
+console.log(produitsDejaPresents);
 //Si le panier est vide
-if (produitsDejaPresents === null){
-    const panierVide =  '<h2 class="text-center font-weight-bold" id="paniervide">Le panier est vide!</h2>';
-    panierProduit.innerHTML= panierVide;
-}else{
+if (produitsDejaPresents == null){
+    var panierVide = document.getElementById("panierVide");
+    panierVide.innerText = 'Le panier est vide!';
+}else{ 
 //Si le panier n'est pas vide
     let interieurPanier=[];
     let total= 0;
     //Boucle sur chaque produit dans le localStorage
     for(k=0; k < produitsDejaPresents.length; k++){
-        interieurPanier = interieurPanier + `<li class="pt-2 pb-2 border-bottom border-danger" id="produit_achete">
+        interieurPanier = interieurPanier + `<div class="pt-2 pb-2 border-bottom border-danger" id="produit_achete">
         <a href="produit.html?${produitsDejaPresents[k].id}"><img class="ml-lg-auto mr-lg-n1 ml-md-n2" id="image_panier" src="${produitsDejaPresents[k].image}" width="70" height="60" alt="image_article" /></a>
         <a href="produit.html?${produitsDejaPresents[k].id}"><h5 id="nom_panier" class="font-weight-bold ml-lg-2 ml-md-1 text-decoration-none">${produitsDejaPresents[k].name}</h5></a> 
         <p class="mt-lg-2 ml-lg-2" id="description_panier">${produitsDejaPresents[k].description}</p>
         <p class="mt-lg-2 mr-lg-1 font-weight-bold">Qté:${produitsDejaPresents[k].quantity}</p>
         <button class="btn btn-dark h-100 mr-1" id="btn-supprimer" data-num="${k}">Supprimer</button>
         <p class="font-weight-bold mt-2 mr-lg-2 mr-md-n2" id="prix_panier">${new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(produitsDejaPresents[k].price/100)}</p>
-        </li>`;
+        </div>`;
         
         var totalProduit = parseFloat(produitsDejaPresents[k].price);
         total = total + totalProduit * produitsDejaPresents[k].quantity; 
@@ -43,9 +43,6 @@ if (produitsDejaPresents === null){
             document.location.reload();
         });
     }
-};
-
-if(produitsDejaPresents != null){//Si le panier n'est pas null, création du form
     var form= document.getElementById("formulaire");
     var formCommande = document.createElement('div');
     formCommande.classList.add("col-lg-6", "col-sm-8", "col-11", "mx-auto", "mt-sm-5", "mt-lg-3", "border", "border-danger", "bg-light");
@@ -78,95 +75,94 @@ if(produitsDejaPresents != null){//Si le panier n'est pas null, création du for
     </form>\
     </div>' ;
     form.appendChild(formCommande); // ajout du form au doc
-}
 
-//Formulaire commande + event Bouton commander
-var commande= document.getElementById("commander");
-commande.addEventListener('click', (e)=>{
-    e.preventDefault();
-    // Récupération des valeurs du formulaire rempli 1 + création d'un objet avec
-    const contact = {
-        "firstName": document.getElementById('firstName').value,
-        "lastName": document.getElementById('lastName').value,
-        "address": document.getElementById('adress').value,
-        "city": document.getElementById('city').value,
-        "email": document.getElementById('email').value
-    }
-
-    //----------------------------Verif formulaire-------------------------
-    const regExFirstLastCity = (value) =>{
-        return /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(value);
-    }
-    //firstName
-    function checkFirstName (){
-        const leFirstName = contact.firstName;
-        if(regExFirstLastCity(leFirstName)){
-            document.getElementById("firstNameErreur").textContent = "";
-            return true;
-        }else{
-            document.getElementById("firstNameErreur").textContent = "Veuillez remplir correctement ce champ";
-            return false;
+    //Formulaire commande + event Bouton commander
+    var commande= document.getElementById("commander");
+    commande.addEventListener('click', (e)=>{
+        e.preventDefault();
+        // Récupération des valeurs du formulaire rempli 1 + création d'un objet avec
+        const contact = {
+            "firstName": document.getElementById('firstName').value,
+            "lastName": document.getElementById('lastName').value,
+            "address": document.getElementById('adress').value,
+            "city": document.getElementById('city').value,
+            "email": document.getElementById('email').value
         }
-    };
-    //lastName
-    function checkLastName(){
-        const leLastName = contact.lastName;
-        if(regExFirstLastCity(leLastName)){
-            document.getElementById("lastNameErreur").textContent = "";
-            return true;
-        }else{
-            document.getElementById("lastNameErreur").textContent = "Veuillez remplir correctement ce champ";
-            return false;
+         //----------------------------Verif formulaire-------------------------
+         const regExFirstLastCity = (value) =>{
+            return /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(value);
         }
-    };
+        //firstName
+        function checkFirstName (){
+            const leFirstName = contact.firstName;
+            if(regExFirstLastCity(leFirstName)){
+                document.getElementById("firstNameErreur").textContent = "";
+                return true;
+            }else{
+                document.getElementById("firstNameErreur").textContent = "Veuillez remplir correctement ce champ";
+                return false;
+            }
+        };
+        //lastName
+        function checkLastName(){
+            const leLastName = contact.lastName;
+            if(regExFirstLastCity(leLastName)){
+                document.getElementById("lastNameErreur").textContent = "";
+                return true;
+            }else{
+                document.getElementById("lastNameErreur").textContent = "Veuillez remplir correctement ce champ";
+                return false;
+            }
+        };
 
-    //adress
-    function checkAdress(){
-        const laAdress = contact.adress;
-        if(/^[A-Za-z0-9\s]{6,60}$/.test(laAdress)){
-            document.getElementById("adressErreur").textContent = "";
-            return true;
-        }else{
-            document.getElementById("adressErreur").textContent = "Veuillez remplir correctement ce champ";
-            return false;
+        //adress
+        function checkAdress(){
+            const laAdress = contact.adress;
+            if(/^[A-Za-z0-9\s]{6,60}$/.test(laAdress)){
+                document.getElementById("adressErreur").textContent = "";
+                return true;
+            }else{
+                document.getElementById("adressErreur").textContent = "Veuillez remplir correctement ce champ";
+                return false;
+            }
+        };
+
+        //city
+        function checkCity (){
+            const laCity = contact.city;
+            if(regExFirstLastCity(laCity)){
+                document.getElementById("cityErreur").textContent = "";
+                return true;
+            }else{
+                document.getElementById("cityErreur").textContent = "Veuillez remplir correctement ce champ";
+                return false;
+            }
+        };
+
+        //email
+        function checkEmail(){
+            const leEmail = contact.email;
+            if(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(leEmail)){
+                document.getElementById("emailErreur").textContent = "";
+                return true;
+            }else{
+                document.getElementById("emailErreur").textContent = "Veuillez remplir correctement ce champ";
+                return false;
+            }
+        }; 
+        
+        if(checkFirstName() && checkLastName() && checkAdress() && checkCity() && checkEmail()){
+        //Ajout dans le localStorage
+            localStorage.setItem("contact", JSON.stringify(contact));
+
+            //Redirection vers commande_thx.html
+            window.location.replace("commande_thx.html");
+        } else{
+        alert("Veuillez remplir correctement le formulaire");
         }
-    };
-
-    //city
-    function checkCity (){
-        const laCity = contact.city;
-        if(regExFirstLastCity(laCity)){
-            document.getElementById("cityErreur").textContent = "";
-            return true;
-        }else{
-            document.getElementById("cityErreur").textContent = "Veuillez remplir correctement ce champ";
-            return false;
-        }
-    };
-
-    //email
-    function checkEmail(){
-        const leEmail = contact.email;
-        if(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(leEmail)){
-            document.getElementById("emailErreur").textContent = "";
-            return true;
-        }else{
-            document.getElementById("emailErreur").textContent = "Veuillez remplir correctement ce champ";
-            return false;
-        }
-    }; 
-    
-    if(checkFirstName() && checkLastName() && checkAdress && checkCity() && checkEmail()){
-    //Ajout dans le localStorage
-        localStorage.setItem("contact", JSON.stringify(contact));
-
-        //Redirection vers commande_thx.html
-        window.location.replace("commande_thx.html");
-    } else{
-    alert("Veuillez remplir correctement le formulaire");
-    }
-     
-});
+        
+    });
+};
 
 
 

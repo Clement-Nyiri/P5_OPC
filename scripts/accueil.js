@@ -39,7 +39,6 @@ TableauProduits.onreadystatechange = function(){
     if (this.readyState==4 && this.status==200){ // Si ok
         var tt=this.response.split('}'); //Séparation des éléments
         tt.pop(); // Enlève le dernier (problématique)
-        console.log(tt);
         var str_debut=['{"varnish":[' , '_id":"', '"name":"' , '"price":' , '"description":"' , ',"imageUrl":"']; //clés à rechercher
         var str_fin=['],"' , '",' , '",' , ',' , '"' , '"' ]; //fin des clés
         for(let i=0;i<tt.length;i++){ //boucle sur chaque objet
@@ -49,7 +48,6 @@ TableauProduits.onreadystatechange = function(){
                 var i_fin=tt[i].indexOf(str_fin[j],i_debut+str_debut[j].length+1); // indice de fin de clé [j]
                 var value=tt[i].substring(i_debut+str_debut[j].length,i_fin); // valeurs entre début et fin
                 listeValue.push(value); //Ajout des valeurs dans la variable listeValue déclarée avant
-                console.log(listeValue);
             }
             var newProduct= new Produit(listeValue[0], listeValue[1], listeValue[2], listeValue[3], listeValue[4], listeValue[5]); //Création d'objets à partir des listes   
         }
