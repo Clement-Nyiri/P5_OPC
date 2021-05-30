@@ -14,12 +14,11 @@ if (produitsDejaPresents == null){
     //Boucle sur chaque produit dans le localStorage
     for(k=0; k < produitsDejaPresents.length; k++){
         interieurPanier = interieurPanier + `<div class="pt-2 pb-2 border-bottom border-danger" id="produit_achete">
-        <a href="produit.html?${produitsDejaPresents[k].id}"><img class="ml-lg-auto mr-lg-n1 ml-md-n2" id="image_panier" src="${produitsDejaPresents[k].image}" width="70" height="60" alt="image_article" /></a>
-        <a href="produit.html?${produitsDejaPresents[k].id}"><h5 id="nom_panier" class="font-weight-bold ml-lg-2 ml-md-1 text-decoration-none">${produitsDejaPresents[k].name}</h5></a> 
-        <p class="mt-lg-2 ml-lg-2" id="description_panier">${produitsDejaPresents[k].description}</p>
-        <p class="mt-lg-2 mr-lg-1 font-weight-bold">Qté:${produitsDejaPresents[k].quantity}</p>
+        <a href="produit.html?${produitsDejaPresents[k].id}"><img class="ml-lg-auto mr-lg-n1" id="image_panier" src="${produitsDejaPresents[k].image}" width="70" height="60" alt="image_article" /></a>
+        <a href="produit.html?${produitsDejaPresents[k].id}"><p id="nom_panier" class="ml-lg-2 text-decoration-none"><span id="nom_produit" class="font-weight-bold">${produitsDejaPresents[k].name}</span> <br/> ${produitsDejaPresents[k].description}</p></a>
+        <p class="mt-lg-2 mr-lg-1 ml-md-2 font-weight-bold">Qté:${produitsDejaPresents[k].quantity}</p>
         <button class="btn btn-dark h-100 mr-1" id="btn-supprimer" data-num="${k}">Supprimer</button>
-        <p class="font-weight-bold mt-2 mr-lg-2 mr-md-n2" id="prix_panier">${new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(produitsDejaPresents[k].price/100)}</p>
+        <p class="font-weight-bold mt-2 mr-lg-2" id="prix_panier">${new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(produitsDejaPresents[k].price/100)}</p>
         </div>`;
         
         var totalProduit = parseFloat(produitsDejaPresents[k].price);

@@ -29,7 +29,7 @@ class Produit{
         var adapt = document.createElement ("article")
         var Name= document.getElementById("produit");
         //HTML à ajouter dans le document
-        var innerHTML1 = '<h2 class="mt-5 text-center font-weight-bold"><u>'+this.name+'</u></h2>\
+        var innerHTML1 = '<h3 class="mt-5 text-center font-weight-bold"><u>'+this.name+'</u></h3>\
                 <div class="row mt-5">\
                     <div class="my-auto col-md-3">\
                         <img id="img_produit" class="border border-info img-responsive center-block shadow-sm" src="'+this.imageUrl+'" alt="image_produit" />\
@@ -96,7 +96,7 @@ class Produit{
             //Si panier existe déjà
             if (produitsDejaPresents){
                 if(quantite <=0){
-                    window.alert(`La quantité ne doit pas être inférieure à 0`);
+                    window.alert(`La quantité ne doit pas être inférieure à 1`);
                 }else{
                 ajoutAuPanier();
                 popupAjout();}
@@ -104,7 +104,7 @@ class Produit{
             //Si panier n'existe pas
             else {
                 if(quantite <= 0){
-                    window.alert(`La quantité ne doit pas être inférieure à 0`);
+                    window.alert(`La quantité ne doit pas être inférieure à 1`);
                 }else{
                 produitsDejaPresents= [];
                 ajoutAuPanier();
