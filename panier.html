@@ -36,6 +36,34 @@
                     <div class="col-lg-11 col-sm-11 col-11 mx-auto ml-lg-5 pt-3 pb-3 border border-danger bg-light mb-3" id="panier_produit"><h3 id="panierVide" class="text-center font-weight-bold mt-2"></h3></div>
                 </div>
                 <div class="row" id="formulaire">
+                    <div class="col-lg-6 col-sm-8 col-11 mx-auto mt-sm-5 mt-lg-3 border border-danger bg-light">
+                        <h3 class="text-center mt-3 mb-3 font-weight-bold">Formulaire de commande</h3>
+                        <form>
+                            <div class="form-group mt-3">
+                                <label for="firstName" class="w-25 font-weight-bold">Prénom : </label><span id="firstNameErreur" class="text-dark"></span>
+                                <input type="text" class="form-control w-75 w-md-50" id="firstName" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="lastName" class="w-25 font-weight-bold">Nom :</label><span id="lastNameErreur" class="text-dark"></span>
+                                <input type="text" class="form-control w-75" id="lastName" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="adress" class="w-25 font-weight-bold">Adresse :</label><span id="adressErreur" class="text-dark"></span>
+                                <input type="text" class="form-control w-75" id="adress" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="city" class="w-25 font-weight-bold">Ville :</label><span id="cityErreur" class="text-dark"></span>
+                                <input type="text" class="form-control w-75" id="city" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="email" class="w-25 font-weight-bold">Adresse e-mail :</label><span id="emailErreur" class="text-dark"></span>
+                                <input type="email" class="form-control w-75" id="email" required>
+                            </div>
+                            <div class="text-center mb-3 mt-4">
+                            <button id="commander" type="submit" class="btn btn-secondary"><strong>Commander</strong></button>
+                            </div>
+                        </form>\
+                        </div>'
                 </div>
             </div>
 

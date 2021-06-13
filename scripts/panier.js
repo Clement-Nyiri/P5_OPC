@@ -2,7 +2,6 @@
 let produitsDejaPresents = JSON.parse(localStorage.getItem("panier"));
 // Panier dynamique
 const panierProduit = document.getElementById("panier_produit");
-console.log(produitsDejaPresents);
 //Si le panier est vide
 if (produitsDejaPresents == null){
     var panierVide = document.getElementById("panierVide");
@@ -42,38 +41,16 @@ if (produitsDejaPresents == null){
             document.location.reload();
         });
     }
-    var form= document.getElementById("formulaire");
-    var formCommande = document.createElement('div');
-    formCommande.classList.add("col-lg-6", "col-sm-8", "col-11", "mx-auto", "mt-sm-5", "mt-lg-3", "border", "border-danger", "bg-light");
-    formCommande.innerHTML='<div>\
-    <h3 class="text-center mt-3 mb-3 font-weight-bold">Formulaire de commande</h3>\
-    <form>\
-        <div class="form-group mt-3">\
-            <label for="firstName" class="w-25 font-weight-bold">Prénom : </label><span id="firstNameErreur" class="text-dark"></span>\
-            <input type="text" class="form-control w-75 w-md-50" id="firstName" required>\
-        </div>\
-        <div class="form-group mt-3">\
-            <label for="lastName" class="w-25 font-weight-bold">Nom :</label><span id="lastNameErreur" class="text-dark"></span>\
-            <input type="text" class="form-control w-75" id="lastName" required>\
-        </div>\
-        <div class="form-group mt-3">\
-            <label for="adress" class="w-25 font-weight-bold">Adresse :</label><span id="adressErreur" class="text-dark"></span>\
-            <input type="text" class="form-control w-75" id="adress" required>\
-        </div>\
-        <div class="form-group mt-3">\
-            <label for="city" class="w-25 font-weight-bold">Ville :</label><span id="cityErreur" class="text-dark"></span>\
-            <input type="text" class="form-control w-75" id="city" required>\
-        </div>\
-        <div class="form-group mt-3">\
-            <label for="email" class="w-25 font-weight-bold">Adresse e-mail :</label><span id="emailErreur" class="text-dark"></span>\
-            <input type="email" class="form-control w-75" id="email" required>\
-        </div>\
-        <div class="text-center mb-3 mt-4">\
-        <button id="commander" type="submit" class="btn btn-secondary"><strong>Commander</strong></button>\
-        </div>\
-    </form>\
-    </div>' ;
-    form.appendChild(formCommande); // ajout du form au doc
+
+    function checkInput(input, regex, errorId){
+        if(regex.test(input)){
+            document.getElementById(errorId).textContent = "";
+            return true;
+        }else{
+            document.getElementById(errorId).textContent = "Veuillez remplir correctement ce champ";
+            return false;
+        }
+    };
 
     //Formulaire commande + event Bouton commander
     var commande= document.getElementById("commander");
@@ -91,66 +68,30 @@ if (produitsDejaPresents == null){
          const regExFirstLastCity = (value) =>{
             return /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(value);
         }
-        //firstName
-        function checkFirstName (){
-            const leFirstName = contact.firstName;
-            if(regExFirstLastCity(leFirstName)){
-                document.getElementById("firstNameErreur").textContent = "";
-                return true;
-            }else{
-                document.getElementById("firstNameErreur").textContent = "Veuillez remplir correctement ce champ";
-                return false;
-            }
-        };
+        // IMPORTANT 
+        
+        /*
+        //FirstName
+        checkInput(contact.firstName, /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/,firstNameErreur);
+
         //lastName
-        function checkLastName(){
-            const leLastName = contact.lastName;
-            if(regExFirstLastCity(leLastName)){
-                document.getElementById("lastNameErreur").textContent = "";
-                return true;
-            }else{
-                document.getElementById("lastNameErreur").textContent = "Veuillez remplir correctement ce champ";
-                return false;
-            }
-        };
+        checkInput(contact.lastName, /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/,lastNameErreur);
 
         //adress
-        function checkAdress(){
-            const laAdress = contact.adress;
-            if(/^[A-Za-z0-9\s]{6,60}$/.test(laAdress)){
-                document.getElementById("adressErreur").textContent = "";
-                return true;
-            }else{
-                document.getElementById("adressErreur").textContent = "Veuillez remplir correctement ce champ";
-                return false;
-            }
-        };
+        checkInput(contact.address, /^[A-Za-z0-9\s]{6,60}$/ ,adressErreur);
 
         //city
-        function checkCity (){
-            const laCity = contact.city;
-            if(regExFirstLastCity(laCity)){
-                document.getElementById("cityErreur").textContent = "";
-                return true;
-            }else{
-                document.getElementById("cityErreur").textContent = "Veuillez remplir correctement ce champ";
-                return false;
-            }
-        };
+        checkInput(contact.city, /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/,cityErreur);
 
         //email
-        function checkEmail(){
-            const leEmail = contact.email;
-            if(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(leEmail)){
-                document.getElementById("emailErreur").textContent = "";
-                return true;
-            }else{
-                document.getElementById("emailErreur").textContent = "Veuillez remplir correctement ce champ";
-                return false;
-            }
-        }; 
+        checkInput(contact.email, /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,emailErreur); 
+        */
         
-        if(checkFirstName() && checkLastName() && checkAdress() && checkCity() && checkEmail()){
+        if(checkInput(contact.firstName, /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/,"firstNameErreur")
+        && checkInput(contact.lastName, /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/,"lastNameErreur")
+        && checkInput(contact.address, /^[A-Za-z0-9\s]{6,60}$/ ,"adressErreur")
+        && checkInput(contact.city, /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/,"cityErreur") 
+        && checkInput(contact.email, /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,"emailErreur")){
         //Ajout dans le localStorage
             localStorage.setItem("contact", JSON.stringify(contact));
 

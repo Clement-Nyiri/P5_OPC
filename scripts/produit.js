@@ -114,26 +114,20 @@ class Produit{
         });
     }
 }
-const TableauProduits = new XMLHttpRequest();
-var currentProduct;
-TableauProduits.onreadystatechange = function(){
-    if (this.readyState==4 && this.status==200){ // Si ok
-        var tt = this.response;
-        var str_debut=['{"varnish":[' , '_id":"', '"name":"' , '"price":' , '"description":"' , ',"imageUrl":"']; //clés à rechercher
-        var str_fin=['],"' , '",' , '",' , ',' , '"' , '"' ]; //fin des clés
-        let listeValue=[]; //Declaration variable listeValue
-        for(let j=0;j<str_debut.length;j++){ //boucler sur les clés
-            var i_debut=tt.indexOf(str_debut[j]); //Indice de la clé [j]
-            var i_fin=tt.indexOf(str_fin[j],i_debut+str_debut[j].length+1); // indice de fin de clé [j]
-            var value=tt.substring(i_debut+str_debut[j].length,i_fin); // valeurs entre début et fin
-            listeValue.push(value); //Ajout des valeurs dans la variable listeValue déclarée avant
-        }
-        currentProduct= new Produit(listeValue[0].replaceAll('\"','').split(','), listeValue[1], listeValue[2], listeValue[3], listeValue[4], listeValue[5]); //Création d'objets à partir des listes
-    }
-    
-};
-TableauProduits.open("GET", "http://localhost:3000/api/furniture/"+idPage , true);
-TableauProduits.send();
+
+const TableauProduits = fetch("http://localhost:3000/api/furniture/"+idPage);
+TableauProduits
+.then(async (res) =>{
+    try{
+        const response = await res.json();
+            newProduct = new Produit(response.varnish,response._id , response.name, response.price, response.description, response.imageUrl); 
+    }catch(e){
+        console.log(e)
+    }  
+})
+.catch(function(err) {
+    console.log(err);
+});
 
 
 
